@@ -13,6 +13,92 @@
   }
 }
 
+/* Apply styles to the container */
+.content-container {
+  display: flex;
+  justify-content: space-between; /* Make the buttons occupy the entire width */
+  align-items: center; /* Center the buttons vertically */
+}
+
+/* Apply styles to the buttons */
+.upload-button,
+.save-button {
+  flex: 1; /* Share the available space equally */
+  padding: 10px; /* Add padding for spacing */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  outline: none; /* Add color-changing hover effect */
+}
+
+.upload-button {
+  background-color: #3498db; /* Set the background color for the Upload button */
+  color: #fff;
+  font-size: larger; /* Set text color */
+}
+
+.save-button {
+  background-color: #e74c3c; /* Set the background color for the Save button */
+  color: #fff;
+  font-size: larger; /* Set text color */
+}
+
+/* Hover effect for both buttons */
+.upload-button:hover {
+  background-color: #2980b9; /* Change background color on hover */
+}
+
+.save-button:hover {
+  background-color: #c80000; /* Change background color on hover */
+}
+
+/* Target the Jodit toolbar container */
+.jodit-toolbar__box {
+  background-color: #ffd580; /* Set the background color */
+  border: 1px solid #ddd; /* Add a border */
+  padding: 10px; /* Add padding */
+}
+
+
+.jodit_theme_summer {
+  --jd-color-background-default: #417505;
+  --jd-color-border: #474025;
+  --jd-color-panel: #5fd3a2;
+  --jd-color-icon: #8b572a;
+}
+
+.rsw-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  z-index: 1000; /* Adjust this value as needed */
+  background: #fff; /* Background color, adjust as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  margin-bottom: 10px;
+}
+
+.rsw-ce {
+  margin-top: 3%;
+  background: #fff; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 10px;
+}
+
+.rsw-btn {
+  font-size: 1.2em; /* Increase the size */
+  margin: 8px; /* Increase the margin */
+  padding: 8px; /* Increase the padding */
+}
+
+.rsw-dd {
+  font-size: 1em; /* Increase the size */
+  margin: 8px; /* Increase the margin */
+  padding: 8px; /* Increase the padding */
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

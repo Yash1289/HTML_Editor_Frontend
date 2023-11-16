@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useRef, useEffect } from "react";
+import { saveAs } from 'file-saver';
+import { Routes, Route } from 'react-router-dom';
+import "./App.css";
+import { AuthContext } from "./Context/authContext";
+import { tokenContext } from "./Context/tokenContext";
+import PrivateRoute from "./routes/privateRoute";
+import Homepage from "./component/Homepage";
+import Editor from "./pages/Editor";
 
-function App() {
+
+export default function App() {
+
+  const [user, setUser] = useState({})
+
+  const [aToken, setAToken] = useState()
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <AuthContext.Provider value={{ user, setUser }}>
+        <tokenContext.Provider value={{ aToken, setAToken }}>
+          <Routes>
+            <Route path="*" element={<PrivateRoute>
+              <Homepage />
+            </PrivateRoute>} />
+            <Route path="/editor" element={<Editor/>} />
+          </Routes>
+        </tokenContext.Provider>
+      </AuthContext.Provider>
   );
 }
-
-export default App;

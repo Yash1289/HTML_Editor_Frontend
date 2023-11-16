@@ -1,0 +1,10 @@
+
+.upload-button,
+.save-button {
+  flex: 1; /* Share the available space equally */
+  padding: 10px; /* Add padding for spacing */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  outline: none; /* Add color-changing hover effect */
+}
