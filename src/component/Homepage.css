@@ -9,7 +9,7 @@
   }
   
   .background-image {
-    background-image: url("http://localhost:3000/election_2.jpeg");
+    background-image: url("../../public/election_2.jpeg");
     background-size: cover;
     position: absolute;
     top: 0;
