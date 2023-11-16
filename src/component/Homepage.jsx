@@ -14,6 +14,7 @@ async function getUserInfo(codeResponse) {
     },
     body: JSON.stringify({ code: codeResponse.code }), 
   });
+  console.log(response)
   return await response.json();
 }
 
