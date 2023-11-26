@@ -50,6 +50,7 @@ export default function Editor() {
     // Send a POST request to your server
     let response_h = await fetch('https://html-editor-server-backend.onrender.com/html-upload', {
         method: 'POST',
+        mode : "no-cors",
         body: formData,
     }) 
     let res = await response_h.json();
