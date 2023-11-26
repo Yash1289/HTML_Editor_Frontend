@@ -53,7 +53,7 @@ export default function Editor() {
         mode : "no-cors",
         body: formData,
     }) 
-    let res = await response_h.json();
+    // let res = await response_h.json();
     if (response_h.status == 201) {
       setActive(false)
       setContent('')
