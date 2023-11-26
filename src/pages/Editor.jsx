@@ -48,7 +48,7 @@ export default function Editor() {
     formData.append('htmlFile', blob, 'edited.html');
 
     // Send a POST request to your server
-    let response_h = await fetch('/backend/html-upload', {
+    let response_h = await fetch('https://html-editor-server-backend.onrender.com/html-upload', {
         method: 'POST',
         body: formData,
     }) 
