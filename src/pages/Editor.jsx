@@ -54,6 +54,16 @@ export default function Editor() {
     }) 
     // let res = await response_h.json(); 
     if (response_h.status == 201) {
+
+      let downloadResponse = await fetch('https://html-editor-server-backend.onrender.com/download', {
+                method: 'GET',
+            });
+
+      if (downloadResponse.ok) {
+
+      saveAs(blob, 'edited.pdf');
+      }
+
       setActive(false)
       setContent('')
       }
