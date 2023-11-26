@@ -59,7 +59,7 @@ export default function Editor() {
       setContent('')
       }
     else {
-        console.log(res)
+        console.log(response_h)
         alert("Error sending HTML file to the server.");
       }
     
