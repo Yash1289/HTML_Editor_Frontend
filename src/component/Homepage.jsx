@@ -7,8 +7,8 @@ import { tokenContext } from '../Context/tokenContext';
 
 
 async function getUserInfo(codeResponse) {
-  var response = await fetch("https://html-editor-server-backend.onrender.com/google_login", {
-    // var response = await fetch("/google_login", {
+  // var response = await fetch("https://html-editor-server-backend.onrender.com/google_login", {
+    var response = await fetch("/backend/google_login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
