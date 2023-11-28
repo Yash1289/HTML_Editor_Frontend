@@ -22,35 +22,135 @@
   
   /* Apply styles to the buttons */
   .upload-button,
-  .save-button {
+  .save-button,
+  .hf-button {
     flex: 1; /* Share the available space equally */
-    padding: 10px; /* Add padding for spacing */
+    padding: 7px; /* Add padding for spacing */
     text-align: center;
-    cursor: pointer;
+    margin : 3px;
+    /* cursor: pointer;
     transition: background-color 0.3s;
-    outline: none; /* Add color-changing hover effect */
+    outline: none;  */
+  }
+
+  .save-button{
+    background:#e5383b;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:50px;
+    font-size:1.3em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 6px;
+  }
+  .save-button:hover{
+    background:#fff;
+    color:#e5383b;
+  }
+  .save-button:before,.save-button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #e5383b;
+    transition:400ms ease all;
+  }
+  .save-button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .save-button:hover:before,.save-button:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+
+  .upload-button{
+    background:#00b4d8;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:50px;
+    font-size:1.3em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 6px;
+  }
+  .upload-button:hover{
+    background:#fff;
+    color:#00b4d8;
+  }
+  .upload-button:before,.upload-button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #00b4d8;
+    transition:400ms ease all;
+  }
+  .upload-button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .upload-button:hover:before,.upload-button:hover:after{
+    width:100%;
+    transition:800ms ease all;
   }
   
-  .upload-button {
-    background-color: #3498db; /* Set the background color for the Upload button */
-    color: #fff;
-    font-size: larger; /* Set text color */
+  
+  .hf-button{
+    background:#adb5bd;
+    color:#fff;
+    border:none;
+    position:relative;
+    height:50px;
+    font-size:1.3em;
+    padding:0 2em;
+    cursor:pointer;
+    transition:800ms ease all;
+    outline:none;
+    border-radius: 6px;
+  }
+  .hf-button:hover{
+    background:#fff;
+    color:#adb5bd;
+  }
+  .hf-button:before,.hf-button:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #adb5bd;
+    transition:400ms ease all;
+  }
+  .hf-button:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .hf-button:hover:before,.hf-button:hover:after{
+    width:100%;
+    transition:800ms ease all;
   }
   
-  .save-button {
-    background-color: #e74c3c; /* Set the background color for the Save button */
-    color: #fff;
-    font-size: larger; /* Set text color */
-  }
-  
-  /* Hover effect for both buttons */
-  .upload-button:hover {
-    background-color: #2980b9; /* Change background color on hover */
-  }
-  
-  .save-button:hover {
-    background-color: #c80000; /* Change background color on hover */
-  }
+  /* .save-button:hover {
+    background-color: #c80000; 
+  } */
   
   /* Target the Jodit toolbar container */
   .jodit-toolbar__box {

@@ -1,0 +1,51 @@
+.centered-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999; /* Adjust the z-index as needed to ensure it's on top of other components */
+    background-color: white; /* Optional: Set a background color */
+    padding: 20px; /* Optional: Add padding for better appearance */
+    border: 1px solid #ccc; /* Optional: Add a border for better visibility */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow for a subtle effect */
+    border-radius: 6px;
+    opacity: 0; /* Initially set opacity to 0 */
+    visibility: hidden; /* Initially set visibility to hidden */
+    transition: opacity 0.3s, visibility 0.3s; 
+}
+
+.centered-form.visible {
+  opacity: 1; /* Show the form when the 'visible' class is applied */
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0.3s; 
+}
+
+.centered-form form {
+    width: 400px; /* Set the width of your form container */
+    margin: 0 auto; /* Center the form horizontally within the container */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  

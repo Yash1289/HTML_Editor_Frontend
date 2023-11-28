@@ -5,11 +5,12 @@ import "./Editor.css";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import LoadingOverlay from 'react-loading-overlay-ts';
 import AppPicker from "../component/filePicker";
+import ToggleHF from "../component/toggleHeaderFooter";
 
 
 const override = {
   margin: "0 auto",
-  borderColor: "red",
+  borderColor: "red"
 };
  
 export default function Editor() {
@@ -19,33 +20,29 @@ export default function Editor() {
   const [content, setContent] = useState(``);
   const [isActive, setActive] = useState(false)
 
+  const [formDataC, setFormData] = useState({header: "",footer: ""});
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  };
+
   const updateFileState = (newFile) => {
     setContent(newFile)
   }
-
-  const handleFileChange = (e) => {
-    
-    const file = e.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = (e) => {
-      const htmlString = e.target.result;
-      setContent(htmlString);
-    };
-
-    reader.readAsText(file);
-  };
 
   const saveHtmlFile = async () => {
     // Create a Blob containing the HTML content
     setActive(true)
     const blob = new Blob([content], { type: 'text/html' });
 
-    // saveAs(blob, 'edited.html');
-
     // Convert the Blob to a FormData object to send it in a POST request
     const formData = new FormData();
     formData.append('htmlFile', blob, 'edited.html');
+
+    Object.entries(formDataC).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
 
     // Send a POST request to your server
     let response_h = await fetch('https://html-editor-server-backend.onrender.com/html-upload', {
@@ -53,20 +50,15 @@ export default function Editor() {
         body: formData,
     }) 
     // let res = await response_h.json(); 
-    if (response_h.status == 201) {
+    if (response_h.status == 201 && response_h.ok) {
 
-      let downloadResponse = await fetch('https://html-editor-server-backend.onrender.com/download', {
-                method: 'GET',
-            });
-
-      if (downloadResponse.ok) {
-
-      saveAs(blob, 'edited.pdf');
-      }
+      const blob_n = await response_h.blob();
+      saveAs(blob_n, 'edited.pdf');
 
       setActive(false)
       setContent('')
-      }
+      setFormData({header: "",footer: ""})
+      }  
     else {
         console.log(response_h)
         alert("Error sending HTML file to the server.");
@@ -101,13 +93,7 @@ export default function Editor() {
         <div>
           <div className="content-container">
             <AppPicker updateFileState = {updateFileState}/>
-            <input
-              type="file"
-              accept=".html"
-              ref={fileInputRef}
-              style={{ display: 'none' }}
-              onChange={handleFileChange}
-            />
+            <ToggleHF formData={formDataC} handleChange={handleChange}/>
             <button onClick={saveHtmlFile} className="save-button">
               Save HTML
             </button>
